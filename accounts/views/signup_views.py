@@ -10,6 +10,7 @@ from drf_spectacular.utils import extend_schema, OpenApiExample
 
 class SignupAPIView(CreateAPIView):
     serializer_class = SignupSerializer
+
     @extend_schema(
         tags=["Signup"],
         description="회원 가입을 위한 API",
@@ -22,11 +23,8 @@ class SignupAPIView(CreateAPIView):
                     "password": "12341234",
                     "nickname": "Mentos"
                 },
-                request_only=True,
-            )
-        ]
-    )
-
+                request_only=True,)])
+    
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
