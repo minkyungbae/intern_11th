@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "accounts", # 회원 기능
 
     # Swagger
+    "drf_yasg",
     "drf_spectacular",
 ]
 
