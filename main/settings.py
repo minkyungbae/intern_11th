@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-from .config import DJANGO_SECRET_KEY
+from .config import DJANGO_SECRET_KEY # SECRET KEY 보호
+from datetime import timedelta # JWT 시간 및 기간 설정
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# 사용자 모델 지정
+AUTH_USER_MODEL = "accounts.User"
 
 # Application definition
 
@@ -38,8 +41,34 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # DRF
+    "rest_framework",
+    "rest_framework_simplejwt.token_blacklist",
+
+    # 생성한 앱
+    "accounts", # 회원 기능
+
+    # Swagger
+    "drf_spectacular",
 ]
 
+# DRF: token authentication, schema 추가
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'drf-spectacular.openapi.AutoSchema',
+}
+
+# JWT 만료 시간/기간 설정
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5), # 엑세스 토큰 만료 시간 (5분)
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1), # 리프레시 토큰 만료 기간 (하루)
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'TOKEN_BLACKLIST_ENABLED': True,
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
