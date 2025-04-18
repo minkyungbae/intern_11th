@@ -9,7 +9,7 @@ User = get_user_model()
 class SignupSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        field = ("username", "password", "nickname")
+        fields =["username", "password", "nickname"]
         extra_kwargs = {
             "password": {"write_only": True} # 응답에 password가 나오지 않도록 (작성만 허용)
         }
