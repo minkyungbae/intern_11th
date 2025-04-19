@@ -122,3 +122,55 @@ from rest_framework_simplejwt.exceptions import (
         except TokenError:
             return self.handle_token_error("TOKEN_NOT_FOUND")
 ```
+
+---
+## *폴더 구조*
+
+```
+intern_11th
+├─ accounts                             <- signup과 login 기능 구현 앱
+│  ├─ admin.py
+│  ├─ apps.py
+│  ├─ migrations
+│  │  ├─ 0001_initial.py
+│  │  └─ __init__.py
+│  ├─ models.py
+│  ├─ serializers                       <- 사용한 serializers 분리
+│  │  ├─ loginserializers.py            <- login serializers.py
+│  │  ├─ signupserializers.py           <- signup serializers.py
+│  │  └─ __init__.py
+│  ├─ tests.py
+│  ├─ urls.py
+│  ├─ views                             <- 사용한 views 분리
+│  │  ├─ login_views.py                 <- login views.py
+│  │  └─ signup_views.py                <- signup views.py
+│  └─ __init__.py
+├─ image                                <- README.md에 사용할 이미지 관리 폴더
+│  ├─ auth-error                        <- 토큰 관련 에러
+│  │  └─ auth-token-error.png
+│  └─ swagger
+│     ├─ login                          <- swagger의 로그인 페이지 소개 및 로그인 과정 사진
+│     │  ├─ error                       <- login error 이미지
+│     │  │  └─ swagger-login-invalied-error-result.png
+│     │  ├─ swagger-do-login.png
+│     │  ├─ swagger-do-login2.png
+│     │  └─ swagger-login-page.png
+│     ├─ signup                         <- swagger의 회원가입 페이지 소개 및 회원가입 과정 소개
+│     │  ├─ error                       <- signup error 이미지
+│     │  │  └─ swagger-signup-already-exists-error.png
+│     │  ├─ swagger-do-signup.png
+│     │  ├─ swagger-do-signup2.png
+│     │  └─ swagger-signup-page.png
+│     └─ swagger-main-page.png
+├─ main                                 <- Django 프로젝트 관리 앱
+│  ├─ asgi.py
+│  ├─ settings.py
+│  ├─ urls.py
+│  ├─ wsgi.py
+│  └─ __init__.py
+├─ manage.py
+├─ pip-install.txt                      <- pip install 명령어 정리
+├─ README.md
+└─ requirements.txt                     <- 해당 코드를 사용 시, 요구되는 pip list
+
+```
