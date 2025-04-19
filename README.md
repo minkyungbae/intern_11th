@@ -11,7 +11,7 @@
 
 ## *Swagger Signup page*
 ![swagger-signup-page](image/swagger/signup/swagger-signup-page.png)
-> **Examples를 기입하여, 입력값의 예시를 확인할 수 있습니다.**
+> **Examples를 기입하여, 입력값의 예시를 확인할 수 있습니다.**<br>
 > 요구된 입력값 : username, password, nickname
 
 ### *Signup*
@@ -38,7 +38,7 @@ Response body
 
 ## *Swagger Login page*
 ![swagger-login-page](image/swagger/login/swagger-login-page.png)
-> **Examples를 기입하여, 입력값의 예시를 확인할 수 있습니다.**
+> **Examples를 기입하여, 입력값의 예시를 확인할 수 있습니다.** <br>
 > 요구된 입력값 : username, password
 
 ### *Login*
@@ -52,8 +52,8 @@ Response body
 ---
 
 ## *Pytest*
-> pytest 파일은 "accounts/tests/"에 있습니다.
-> [test_signup.py](https://github.com/minkyungbae/intern_11th/blob/main/accounts/tests/test_signup.py)
+> pytest 파일은 "accounts/tests/"에 있습니다. <br>
+> [test_signup.py](https://github.com/minkyungbae/intern_11th/blob/main/accounts/tests/test_signup.py) <br>
 > [test_login.py](https://github.com/minkyungbae/intern_11th/blob/main/accounts/tests/test_login.py)
 
 
