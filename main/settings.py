@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     "accounts", # 회원 기능
 
     # Swagger
-    "drf_yasg",
     "drf_spectacular",
 ]
 
@@ -70,6 +69,15 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,
     'TOKEN_BLACKLIST_ENABLED': True,
 }
+
+# Spectacular 설정
+SPECTACULAR_SETTINGS = {
+    "TITLE": "바로인턴11기_배민경의 API",
+    "DESCRIPTION": "바로 인턴 11기 백엔드 개발자 과제(Python), 회원 가입 및 로그인 기능 구현과 오류 처리",
+    "VERSION": "1.0.0",
+    "COMPONENT_SPLIT_REQUEST": True,  # request 예시 따로 나옴
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
