@@ -8,23 +8,24 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from drf_spectacular.utils import extend_schema, OpenApiExample
 
 
+@extend_schema(
+    methods=["POST"],
+    tags=["Signup"],
+    description="회원 가입을 위한 API",
+    request=SignupSerializer,
+    examples=[
+        OpenApiExample(
+            name="Signup Example",
+            value={
+                "username": "JIN HO",
+                "password": "12341234",
+                "nickname": "Mentos"
+            },
+            request_only=True,)]
+)
 class SignupAPIView(CreateAPIView):
     serializer_class = SignupSerializer
 
-    @extend_schema(
-        tags=["Signup"],
-        description="회원 가입을 위한 API",
-        request=SignupSerializer,
-        examples=[
-            OpenApiExample(
-                name="Signup Example",
-                value={
-                    "username": "JIN HO",
-                    "password": "12341234",
-                    "nickname": "Mentos"
-                },
-                request_only=True,)])
-    
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
