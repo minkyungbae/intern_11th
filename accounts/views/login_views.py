@@ -38,7 +38,7 @@ class LoginAPIView(GenericAPIView):
 
             return Response({
                     "token": str(refresh)
-                }, status=status.HTTP_201_CREATED)
+                }, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     # 토큰 에러
