@@ -1,0 +1,11 @@
+Django 설치
+pip install Django
+
+DRF 설치
+pip install djangorestframework
+
+JWT 설치
+pip install djangorestframework-simplejwt
+
+Swagger: drf-spectacular 설치
+pip install drf-spectacular
