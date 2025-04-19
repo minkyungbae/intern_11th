@@ -51,34 +51,30 @@ Response body
 
 ---
 
-## *Signup 오류 처리*
-*Aleady exists*
-![Aleady-exists-error](image/swagger/signup/error/swagger-signup-already-exists-error.png)
+## *Pytest*
+> pytest 파일은 "accounts/tests/"에 있습니다.
+> [test_signup.py](https://github.com/minkyungbae/intern_11th/blob/main/accounts/tests/test_signup.py)
+> [test_login.py](https://github.com/minkyungbae/intern_11th/blob/main/accounts/tests/test_login.py)
+
 
 ```
-{
-  "username": [
-    "A user with that username already exists."
-  ]
-}
-```
+(env) PS C:\Users\...\Desktop\...\intern_11th> pytest
+======================================= test session starts =======================================
+platform win32 -- Python 3.13.0, pytest-8.3.5, pluggy-1.5.0
+django: version: 5.2, settings: main.settings (from ini)   
+rootdir: C:\Users\...\Desktop\...\intern_11th
+configfile: pytest.ini
+plugins: django-4.11.1
+collected 6 items
 
----
-## *Login 오류 처리*
-*username or password Invalied error*
-![invalied-error](image/swagger/login/error/swagger-login-invalied-error-result.png)
+accounts\tests\test_login.py ...                                                           [50%]
+accounts\tests\test_signup.py ...                                                         [100%]
 
-```
-{
-  "error": {
-    "code": "INVALID_CREDENTIALS",
-    "message": "아이디 또는 비밀번호가 올바르지 않습니다."
-  }
-}
+======================================= 6 passed in 6.10s =======================================
+
 ```
 ---
 ## *Auth 오류 처리*
-![auth-token-error](image/auth-error/auth-token-error.png)
 
 ```python
 from rest_framework_simplejwt.exceptions import (
@@ -139,7 +135,9 @@ intern_11th
 │  │  ├─ loginserializers.py            <- login serializers.py
 │  │  ├─ signupserializers.py           <- signup serializers.py
 │  │  └─ __init__.py
-│  ├─ tests.py
+│  ├─ tests                             <- pytest를 위한 test 폴더
+│  │  ├─ test_login.py                  <- pytest login.py
+│  │  └─ test_signup.py                 <- pytest signup.py
 │  ├─ urls.py
 │  ├─ views                             <- 사용한 views 분리
 │  │  ├─ login_views.py                 <- login views.py
