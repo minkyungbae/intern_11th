@@ -4,10 +4,10 @@
 
 ---
 ## API 명세서
-|기능|Method|URL|request(200)|response(200)|request(400)|response(400)|
-|-----|-----|-----|-----|-----|-----|-----|
-|Signup|POST|/swagger/#/Signup/accounts_signup_create|```{"username":"Minkyung", "password":"12341234", "nickname":"Minkyung"}```|```{"username":"Minkyung", "nickname":"Minkyung", "access":"...", "refresh":"..."}```|```{"username":"Minkyung", "password":"12341234", "nickname":"Minkyung"}```|```{"username": ["A user with that username already exists."]}```|
-|Login|POST|/swagger/#/Login/accounts_login_create|```{"username":"Minkyung", "password":"12341234"}```|```{"token":"..."}```|username error : ```{"username":"Minkyung3", "password":"12341234"}```, password error: ```{"username":"Minkyung", "password":"1234123"}```|```{"error": {"code": "INVALID_CREDENTIALS","message": "아이디 또는 비밀번호가 올바르지 않습니다."}}```|
+|기능|Method|URL|request(200)|response(200)|request(400)|response(400)|200 Image URL|400 Image URL|
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+|Signup|POST|/swagger/#/Signup/accounts_signup_create|```{"username":"Minkyung", "password":"12341234", "nickname":"Minkyung"}```|```{"username":"Minkyung", "nickname":"Minkyung", "access":"...", "refresh":"..."}```|```{"username":"Minkyung", "password":"12341234", "nickname":"Minkyung"}```|```{"username": ["A user with that username already exists."]}```|[200-Signup](https://github.com/minkyungbae/intern_11th/blob/main/image/swagger/signup/swagger-do-signup2.png)|[400-signup](https://github.com/minkyungbae/intern_11th/blob/main/image/swagger/signup/error/swagger-signup-already-exists-error.png)|
+|Login|POST|/swagger/#/Login/accounts_login_create|```{"username":"Minkyung", "password":"12341234"}```|```{"token":"..."}```|username error : ```{"username":"Minkyung3", "password":"12341234"}```, password error: ```{"username":"Minkyung", "password":"1234123"}```|```{"error": {"code": "INVALID_CREDENTIALS","message": "아이디 또는 비밀번호가 올바르지 않습니다."}}```|[200-login](https://github.com/minkyungbae/intern_11th/blob/main/image/swagger/login/swagger-do-login2.png)|[400-login](https://github.com/minkyungbae/intern_11th/blob/main/image/swagger/login/error/swagger-login-invalied-error-result.png)|
 
 ---
 
