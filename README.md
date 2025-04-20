@@ -1,58 +1,24 @@
 # 🔌 *intern_11th 백엔드 개발자(Python) 과제*
+과제 요구사항 링크 ↓
 [🙋🏻‍♀️ 백엔드 개발자 과제(Python)](https://teamsparta.notion.site/Python-1ad2dc3ef51481c89e92d6bf1020d3e6)
+
+---
+## API 명세서
+|기능|Method|URL|request(200)|response(200)|request(400)|response(400)|
+|-----|-----|-----|-----|-----|-----|-----|
+|Signup|POST|/swagger/#/Signup/accounts_signup_create|```{"username":"Minkyung", "password":"12341234", "nickname":"Minkyung"}```|```{"username":"Minkyung", "nickname":"Minkyung", "access":"...", "refresh":"..."}```|```{"username":"Minkyung", "password":"12341234", "nickname":"Minkyung"}```|```{"username": ["A user with that username already exists."]}```|
+|Login|POST|/swagger/#/Login/accounts_login_create|```{"username":"Minkyung", "password":"12341234"}```|```{"token":"..."}```|username error : ```{"username":"Minkyung3", "password":"12341234"}```, password error: ```{"username":"Minkyung", "password":"1234123"}```|```{"error": {"code": "INVALID_CREDENTIALS","message": "아이디 또는 비밀번호가 올바르지 않습니다."}}```|
 
 ---
 
 ## *Swagger Main page*
-![swagger-main-page](image/swagger/swagger-main-page.png)
+![distribute-swagger-main-page](image/distribute/IPv4-swagger-server.png)
 > **Schema를 확인할 수 있고 Signup API와 Login API를 테스트할 수 있습니다.**
 
 ---
 
-## *Swagger Signup page*
-![swagger-signup-page](image/swagger/signup/swagger-signup-page.png)
-> **Examples를 기입하여, 입력값의 예시를 확인할 수 있습니다.**<br>
-> 요구된 입력값 : username, password, nickname
-
-### *Signup*
-*가입 정보 기입*
-![do-signup](image/swagger/signup/swagger-do-signup.png)
-> 입력값 : {"username": "test01", "password": "12341234", "nickname": "test"}
-
-*가입 완료*
-![do-signup2](image/swagger/signup/swagger-do-signup2.png)
-> **username, nickname, access, refresh이 출력됩니다.**
-```
-Code : 201	
-Details:
-Response body
-{
-  "username": "test01",
-  "nickname": "test",
-  "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ1MDUzNTQyLCJpYXQiOjE3NDUwNTMyNDIsImp0aSI6ImQwNDcyODc4MTIwODRjMmRiOWE4YmEwZDI2MDVlNDhmIiwidXNlcl9pZCI6MX0.yuNTHYhVmH9eckO3SLObNQ-urlHU3mk5cBbFZ9zVDyI",
-  "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0NTEzOTY0MiwiaWF0IjoxNzQ1MDUzMjQyLCJqdGkiOiIxOGY2NTJiMWExZjY0MzZhOGJiNzNhMDk5YzY3NjM1OCIsInVzZXJfaWQiOjF9.VtGEOsrjr0FlPuXUGCicNFyo7yV58jEiQbnVvTUnQgY"
-}
-```
-
----
-
-## *Swagger Login page*
-![swagger-login-page](image/swagger/login/swagger-login-page.png)
-> **Examples를 기입하여, 입력값의 예시를 확인할 수 있습니다.** <br>
-> 요구된 입력값 : username, password
-
-### *Login*
-![do-login](image/swagger/login/swagger-do-login.png)
-> 입력값 : {"username": "test01", "password": "12341234"}
-
-*로그인 완료*
-![do-login2](image/swagger/login/swagger-do-login2.png)
-> **refresh token이 출력됩니다.**
-
----
-
 ## *Pytest*
-> pytest 파일은 "accounts/tests/"에 있습니다. <br>
+> **pytest 파일은 "accounts/tests/"에 있습니다.** <br>
 > [test_signup.py](https://github.com/minkyungbae/intern_11th/blob/main/accounts/tests/test_signup.py) <br>
 > [test_login.py](https://github.com/minkyungbae/intern_11th/blob/main/accounts/tests/test_login.py)
 
@@ -144,8 +110,8 @@ intern_11th
 │  │  └─ signup_views.py                <- signup views.py
 │  └─ __init__.py
 ├─ image                                <- README.md에 사용할 이미지 관리 폴더
-│  ├─ auth-error                        <- 토큰 관련 에러
-│  │  └─ auth-token-error.png
+│  ├─ distribute                        <- 배포 이미지 관리 폴더
+│  │  └─ IPv4-swagger-server.png        <- 배포 url에서의 swagger 메인 화면 사진
 │  └─ swagger
 │     ├─ login                          <- swagger의 로그인 페이지 소개 및 로그인 과정 사진
 │     │  ├─ error                       <- login error 이미지
