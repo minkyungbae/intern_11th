@@ -27,7 +27,10 @@ SECRET_KEY = DJANGO_SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    # 발급받은 IPv4
+    "43.203.244.184",
+]
 
 # 사용자 모델 지정
 AUTH_USER_MODEL = "accounts.User"
