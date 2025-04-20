@@ -17,7 +17,7 @@ class SignupSerializer(serializers.ModelSerializer):
     # 오류 처리
     def validate(self, data):
         if User.objects.filter(username=data["username"]).exists():
-            raise ValidationError(
+            raise serializers.ValidationError(
                 {
                     "error": {
                         "code": "USER_ALREADY_EXISTS",
